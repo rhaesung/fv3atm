@@ -1068,6 +1068,7 @@ contains
       do n=2,Model%ntrac
         ltest = ( n /= Model%ntcw  .and. n /= Model%ntiw  .and. n /= Model%ntclamt .and. &
                   n /= Model%ntrw  .and. n /= Model%ntsw  .and. n /= Model%ntrnc   .and. &
+                  n /= Model%ntlnc .and. n /= Model%ntinc                          .and. &
                   n /= Model%ntsnc .and. n /= Model%ntgl  .and. n /= Model%ntgnc   .and. &
                   n /= Model%nthl  .and. n /= Model%nthnc .and. n /= Model%ntgv    .and. &
                   n /= Model%nthv  .and. n /= Model%ntccn .and. n /= Model%ntccna  .and. &
