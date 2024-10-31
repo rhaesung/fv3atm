@@ -9378,7 +9378,7 @@
   long_name = vertical turbulent kinetic energy at model layer interfaces
   units = m2 s-2
   dimensions = (horizontal_loop_extent,vertical_layer_dimension)
-  type = real 
+  type = real
   kind = kind_phys
 [dkt]
   standard_name = atmosphere_heat_diffusivity
