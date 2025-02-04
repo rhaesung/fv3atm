@@ -284,7 +284,7 @@ module CCPP_typedefs
     real (kind=kind_phys), pointer      :: stress_water(:)    => null()  !<
     real (kind=kind_phys), pointer      :: t2mmp(:)           => null()  !<
     real (kind=kind_phys), pointer      :: theta(:)           => null()  !<
-   ! real (kind=kind_phys), pointer      :: tkeh(:,:)          => null()  !< vertical turbulent kinetic energy (m2/s2) at the model layer interfaces
+    real (kind=kind_phys), pointer      :: tkeh(:,:)          => null()  !< vertical turbulent kinetic energy (m2/s2) at the model layer interfaces
     real (kind=kind_phys), pointer      :: tlvl(:,:)          => null()  !<
     real (kind=kind_phys), pointer      :: tlyr(:,:)          => null()  !<
     real (kind=kind_phys), pointer      :: tprcp_ice(:)       => null()  !<
@@ -697,7 +697,7 @@ contains
     allocate (Interstitial%stress_land     (IM))
     allocate (Interstitial%stress_water    (IM))
     allocate (Interstitial%theta           (IM))
-   ! allocate (Interstitial%tkeh            (IM,Model%levs)) !Vertical turbulent kinetic energy at model layer interfaces
+    allocate (Interstitial%tkeh            (IM,Model%levs)) !Vertical turbulent kinetic energy at model layer interfaces
     allocate (Interstitial%tlvl            (IM,Model%levr+1+LTP))
     allocate (Interstitial%tlyr            (IM,Model%levr+LTP))
     allocate (Interstitial%tprcp_ice       (IM))
@@ -1349,7 +1349,7 @@ contains
     Interstitial%stress_land     = Model%huge
     Interstitial%stress_water    = Model%huge
     Interstitial%theta           = clear_val
-  !  Interstitial%tkeh            = 0
+    Interstitial%tkeh            = 0
     Interstitial%tprcp_ice       = Model%huge
     Interstitial%tprcp_land      = Model%huge
     Interstitial%tprcp_water     = Model%huge
