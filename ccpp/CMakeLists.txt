@@ -126,6 +126,7 @@ else()
   message(STATUS "Compile CCPP SAMFDEEP with 64-bit precision")
   remove_definitions(-DSAMFDEEP_USE_SP)
   set(CMAKE_Fortran_FLAGS_SAMFDEEP ${CMAKE_Fortran_FLAGS_PHYSICS})
+endif()
 # Set flags for rte-rrtmgp radiation
 if(RRTMGP_32BIT)
   message(STATUS "Compile CCPP RTE-RRTMGP with 32-bit precision")
