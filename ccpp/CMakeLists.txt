@@ -113,6 +113,20 @@ else(CCPP_32BIT)
 endif(CCPP_32BIT)
 
 #------------------------------------------------------------------------------
+# Set flags for samf-deep convection
+if(SAMFDEEP_32BIT)
+  message(STATUS "Compile CCPP SAMFDEEP with 32-bit precision")
+  add_definitions(-DSAMFDEEP_USE_SP)
+  if(CMAKE_Fortran_COMPILER_ID MATCHES "Intel")
+    set(CMAKE_Fortran_FLAGS_SAMFDEEP "-real-size 32")
+  elseif(CMAKE_Fortran_COMPILER_ID MATCHES "GNU")
+    set(CMAKE_Fortran_FLAGS_SAMFDEEP "-fno-default-real-8 -fdefault-double-8")
+  endif()
+else()
+  message(STATUS "Compile CCPP SAMFDEEP with 64-bit precision")
+  remove_definitions(-DSAMFDEEP_USE_SP)
+  set(CMAKE_Fortran_FLAGS_SAMFDEEP ${CMAKE_Fortran_FLAGS_PHYSICS})
+endif()
 # Set flags for rte-rrtmgp radiation
 if(RRTMGP_32BIT)
   message(STATUS "Compile CCPP RTE-RRTMGP with 32-bit precision")
